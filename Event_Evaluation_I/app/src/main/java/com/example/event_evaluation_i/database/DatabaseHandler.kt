@@ -78,8 +78,8 @@ class DatabaseHandler(val context: Context) : SQLiteOpenHelper(context, "eventdb
     fun searchData(location : String) : MutableList<EventModel>{
         val listRoutine = mutableListOf<EventModel>()
         val db = readableDatabase
-        val result = "Select * From $TABLE_NAME WHERE EVENT_LOCATION = '$location'"
-        val cursor = db.rawQuery(result, null)
+        val result = "Select * From $TABLE_NAME WHERE $EVENT_LOCATION like?"
+        val cursor = db.rawQuery(result, arrayOf("%$location"))
         if (cursor != null && cursor.count > 0){
             cursor.moveToFirst()
 

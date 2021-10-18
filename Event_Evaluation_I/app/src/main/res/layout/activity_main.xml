@@ -1,69 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <EditText
-        android:id="@+id/TvSearchItem"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:hint="Enter Event Name" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:layout_below="@+id/TvSearchItem"
-        android:id="@+id/BtnSearch"/>
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/TvSearchItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Enter Event Name" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:layout_below="@+id/TvSearchItem"
+            android:id="@+id/BtnSearch"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_below="@+id/BtnSearch"
-        android:id="@+id/TvDesc"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_below="@+id/BtnSearch"
+            android:id="@+id/TvDesc"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_below="@+id/TvDesc"
-        android:id="@+id/TvDate"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_below="@+id/TvDesc"
+            android:id="@+id/TvDate"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_below="@+id/TvDate"
-        android:id="@+id/TvLocation"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_below="@+id/TvDate"
+            android:id="@+id/TvLocation"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/TvLocation"
-        android:id="@+id/TvPrice"/>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_below="@+id/TvPrice"
-        android:layout_height="wrap_content"
-        android:id="@+id/recyclewView"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/recyclewView"
-        android:layout_marginTop="20dp"
-        android:id="@+id/BtnAdd"
-        android:text="Add Item"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TvLocation"
+            android:id="@+id/TvPrice"/>
 
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_below="@+id/TvPrice"
+            android:layout_height="wrap_content"
+            android:id="@+id/recyclewView"/>
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/BtnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recyclewView"
+            android:layout_marginTop="20dp"
+            android:text="Add Item" />
+
+    </RelativeLayout>
+
+
+
+
+
+</ScrollView>

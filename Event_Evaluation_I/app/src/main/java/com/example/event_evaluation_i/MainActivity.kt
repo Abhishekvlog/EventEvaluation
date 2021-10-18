@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_layout.*
 
 class MainActivity : AppCompatActivity() , OnItemClick {
-    private  var eventlist : MutableList<EventModel> = mutableListOf()
+    private var eventlist: MutableList<EventModel> = mutableListOf()
     lateinit var mAdapter: EventAdapter
     lateinit var dbHandler: DatabaseHandler
 
@@ -21,22 +21,22 @@ class MainActivity : AppCompatActivity() , OnItemClick {
 
         dbHandler = DatabaseHandler(this)
         eventlist = dbHandler.ReteriveData()
-        mAdapter = EventAdapter(this, eventlist , this)
+        mAdapter = EventAdapter(this, eventlist, this)
         recyclewView.layoutManager = LinearLayoutManager(this)
 
         recyclewView.adapter = mAdapter
         dbHandler = DatabaseHandler(this)
 
         BtnAdd.setOnClickListener {
-            dbHandler.InsertRoutine("Desc", "10/10/21" , "Delhi", "100000")
+            dbHandler.InsertRoutine("NewDesc", "10/12/21", "Mumbai", "100000")
         }
-//        BtnEdit.setOnClickListener {
-//            dbHandler.updateRoutine(1,"Running", "NewDesc" , " 12/12/21" , "Up" , "20000")
+//        TvBtnEdit.setOnClickListener {
+//            dbHandler.updateRoutine(2, "NewDesc", " 12/12/21", "Up", "20000")
 //        }
-//        BtnDelete.setOnClickListener {
+//        TvBtnDelete.setOnClickListener {
 //            dbHandler.deleteRoutine(1)
 //        }
-//
+
         BtnSearch.setOnClickListener {
             eventlist = dbHandler.searchData(TvSearchItem.text.toString())
             TvDesc.setText(eventlist[0].desc)
@@ -49,16 +49,17 @@ class MainActivity : AppCompatActivity() , OnItemClick {
     }
 
     override fun onEditBtn(eventModel: EventModel) {
-        dbHandler.updateRoutine(eventModel.id , "NewDesc", "12/12/21" , "Up" , "2000")
-        eventlist.clear()
-        eventlist.addAll(dbHandler.ReteriveData())
-        mAdapter.notifyDataSetChanged()
+//        dbHandler.updateRoutine(eventModel.id , "NewDesc", "12/12/21" , "Up" , "2000")
+//        eventlist.clear()
+//        eventlist.addAll(dbHandler.ReteriveData())
+//        mAdapter.notifyDataSetChanged()
     }
 
     override fun onDeleteBtn(eventModel: EventModel) {
-        dbHandler.deleteRoutine(eventModel.id)
-        eventlist.clear()
-        eventlist.addAll(dbHandler.ReteriveData())
-        mAdapter.notifyDataSetChanged()
+//        dbHandler.deleteRoutine(eventModel.id)
+//        eventlist.clear()
+//        eventlist.addAll(dbHandler.ReteriveData())
+//        mAdapter.notifyDataSetChanged()
+//    }
     }
 }

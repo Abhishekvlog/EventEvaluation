@@ -37,16 +37,14 @@ class EventViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
     lateinit var date : TextView
     lateinit var location : TextView
     lateinit var price : TextView
-    lateinit var btnEdit : Button
-    lateinit var btnDelete : Button
+
 
     init {
         desc = itemView.findViewById(R.id.TvEventName)
         date = itemView.findViewById(R.id.TvEventDate)
         location = itemView.findViewById(R.id.TvEventLocation)
         price = itemView.findViewById(R.id.TvEventPrice)
-        btnEdit = itemView.findViewById(R.id.BtnEdit)
-        btnDelete = itemView.findViewById(R.id.BtnDelete)
+
     }
     fun setdata(eventModel: EventModel , listener: OnItemClick){
         desc.text = eventModel.desc

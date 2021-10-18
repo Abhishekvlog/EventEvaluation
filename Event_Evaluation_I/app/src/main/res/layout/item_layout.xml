@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginStart="15dp"
             android:text="Edit"
-            android:id="@+id/BtnEdit"/>
+            android:id="@+id/TvBtnEdit"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginStart="15dp"
             android:text="Delete"
-            android:id="@+id/BtnDelete"/>
+            android:id="@+id/TvBtnDelete"/>
 
     </LinearLayout>
 
