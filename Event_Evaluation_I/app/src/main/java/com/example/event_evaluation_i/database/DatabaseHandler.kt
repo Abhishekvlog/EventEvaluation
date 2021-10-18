@@ -11,6 +11,7 @@ class DatabaseHandler(val context: Context) : SQLiteOpenHelper(context, "eventdb
     companion object{
         val TABLE_NAME = "Event_Table"
         val ID = "id"
+        val EVENT_NAME = "name"
         val EVENT_DESC = "desc"
         val EVENT_DATE = "date"
         val EVENT_LOCATION = "location"
@@ -19,6 +20,7 @@ class DatabaseHandler(val context: Context) : SQLiteOpenHelper(context, "eventdb
 
     override fun onCreate(db: SQLiteDatabase?) {
         val createQuery = "CREATE TABLE $TABLE_NAME($ID INTEGER PRIMARY KEY ," +
+                "$EVENT_NAME TEXT ," +
                 " $EVENT_DESC TEXT," +
                 " $EVENT_DATE TEXT ," +
                 " $EVENT_LOCATION TEXT ," +
@@ -66,6 +68,36 @@ class DatabaseHandler(val context: Context) : SQLiteOpenHelper(context, "eventdb
                 val location = cursor.getString(locationIndex)
                 val price = cursor.getString(priceIndex)
 
+                val eventModel = EventModel(id,desc , date , location , price)
+                listRoutine.add(eventModel)
+
+            }while (cursor.moveToNext())
+        }
+        return listRoutine
+    }
+    fun searchData(location : String) : MutableList<EventModel>{
+        val listRoutine = mutableListOf<EventModel>()
+        val db = readableDatabase
+        val result = "Select * From $TABLE_NAME WHERE EVENT_LOCATION = '$location'"
+        val cursor = db.rawQuery(result, null)
+        if (cursor != null && cursor.count > 0){
+            cursor.moveToFirst()
+
+            do {
+                val idIndex = cursor.getColumnIndex(ID)
+
+                val descIndex = cursor.getColumnIndex(EVENT_DESC)
+                val dateIndex = cursor.getColumnIndex(EVENT_DATE)
+                val locationIndex = cursor.getColumnIndex(EVENT_LOCATION)
+                val priceIndex = cursor.getColumnIndex(EVENT_PRICE)
+
+                val id = cursor.getInt(idIndex)
+
+                val desc = cursor.getString(descIndex)
+                val date = cursor.getString(dateIndex)
+                val location = cursor.getString(locationIndex)
+                val price = cursor.getString(priceIndex)
+
                 val eventModel = EventModel(id, desc , date , location , price)
                 listRoutine.add(eventModel)
 
@@ -74,7 +106,7 @@ class DatabaseHandler(val context: Context) : SQLiteOpenHelper(context, "eventdb
         return listRoutine
     }
 
-    fun updateRoutine(id : Int , newdesc : String , newdate  : String , newlocation :String , newprice : String){
+    fun updateRoutine(id : Int ,newdesc : String , newdate  : String , newlocation :String , newprice : String){
         val db = writableDatabase
         val values = ContentValues()
         values.put(EVENT_DESC , newdesc)

@@ -9,12 +9,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.event_evaluation_i.MainActivity
 import com.example.event_evaluation_i.R
+import com.example.event_evaluation_i.listener.OnItemClick
 import com.example.event_evaluation_i.model.EventModel
 
 class EventAdapter(
     val context: Context,
-    val listener: MutableList<EventModel>,
-    val routineList: MainActivity
+    val routineList : MutableList<EventModel>,
+    val listener : OnItemClick
 ) : RecyclerView.Adapter<EventViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
         val inflter = LayoutInflater.from(context)
@@ -24,10 +25,10 @@ class EventAdapter(
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         val routine = routineList.get(position)
-        holder.BtnEdit.setOnClickListener {
+        holder.btnEdit.setOnClickListener {
             listener.onEditBtn(routine)
         }
-        holder.BtnDelete.setOnClickListener {
+        holder.btnDelete.setOnClickListener {
             listener.onDeleteBtn(routine)
         }
     }
@@ -41,16 +42,16 @@ class EventViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
     lateinit var date : TextView
     lateinit var location : TextView
     lateinit var price : TextView
-    lateinit var BtnEdit : Button
-    lateinit var BtnDelete : Button
+    lateinit var btnEdit : Button
+    lateinit var btnDelete : Button
 
     init {
         desc = itemView.findViewById(R.id.TvEventName)
         date = itemView.findViewById(R.id.TvEventDate)
         location = itemView.findViewById(R.id.TvEventLocation)
         price = itemView.findViewById(R.id.TvEventPrice)
-        BtnEdit = itemView.findViewById(R.id.BtnEdit)
-        BtnDelete = itemView.findViewById(R.id.BtnDelete)
+        btnEdit = itemView.findViewById(R.id.BtnEdit)
+        btnDelete = itemView.findViewById(R.id.BtnDelete)
     }
 
 }

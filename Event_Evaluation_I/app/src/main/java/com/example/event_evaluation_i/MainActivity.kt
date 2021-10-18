@@ -30,11 +30,19 @@ class MainActivity : AppCompatActivity() , OnItemClick {
         BtnAdd.setOnClickListener {
             dbHandler.InsertRoutine("Desc", "10/10/21" , "Delhi", "100000")
         }
-        BtnEdit.setOnClickListener {
-            dbHandler.updateRoutine(1, "NewDesc" , " 12/12/21" , "Up" , "20000")
-        }
-        BtnDelete.setOnClickListener {
-            dbHandler.deleteRoutine(1)
+//        BtnEdit.setOnClickListener {
+//            dbHandler.updateRoutine(1,"Running", "NewDesc" , " 12/12/21" , "Up" , "20000")
+//        }
+//        BtnDelete.setOnClickListener {
+//            dbHandler.deleteRoutine(1)
+//        }
+//
+        BtnSearch.setOnClickListener {
+            eventlist = dbHandler.searchData(TvSearchItem.text.toString())
+            TvDesc.setText(eventlist[0].desc)
+            TvDate.setText(eventlist[0].date)
+            TvLocation.setText(eventlist[0].location)
+            TvPrice.setText(eventlist[0].price)
         }
 
 
