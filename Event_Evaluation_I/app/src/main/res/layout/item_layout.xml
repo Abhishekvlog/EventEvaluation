@@ -56,13 +56,7 @@
             android:layout_marginStart="15dp"
             android:text="Edit"
             android:id="@+id/BtnEdit"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="15dp"
-            android:text="Update"
-            android:id="@+id/BtnUpdate"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

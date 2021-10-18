@@ -74,6 +74,34 @@ class DatabaseHandler(val context: Context) : SQLiteOpenHelper(context, "eventdb
         return listRoutine
     }
 
+    fun updateRoutine(id : Int , newdesc : String , newdate  : String , newlocation :String , newprice : String){
+        val db = writableDatabase
+        val values = ContentValues()
+        values.put(EVENT_DESC , newdesc)
+        values.put(EVENT_DATE , newdate)
+        values.put(EVENT_LOCATION , newlocation)
+        values.put(EVENT_PRICE , newprice)
+
+        val modification = db.update(TABLE_NAME , values , "id = $id" , null)
+
+        if (modification > 0){
+            Toast.makeText(context , "Error in update", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(context , "Successfully Updated", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun deleteRoutine(id : Int){
+        val db = writableDatabase
+        val delete = db.delete(TABLE_NAME , "id = $id" , null)
+        if (delete > 0){
+            Toast.makeText(context , "Error in deletion", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(context , "Deleted", Toast.LENGTH_SHORT).show()
+
+        }
+    }
+
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
         TODO("Not yet implemented")
