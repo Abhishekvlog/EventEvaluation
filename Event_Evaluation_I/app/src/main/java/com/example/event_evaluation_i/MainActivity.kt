@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() , OnItemClick {
 //            dbHandler.deleteRoutine(1)
 //        }
 
+
         BtnSearch.setOnClickListener {
             eventlist = dbHandler.searchData(TvSearchItem.text.toString())
             TvDesc.setText(eventlist[0].desc)
@@ -46,20 +47,21 @@ class MainActivity : AppCompatActivity() , OnItemClick {
         }
 
 
+
     }
 
     override fun onEditBtn(eventModel: EventModel) {
-//        dbHandler.updateRoutine(eventModel.id , "NewDesc", "12/12/21" , "Up" , "2000")
-//        eventlist.clear()
-//        eventlist.addAll(dbHandler.ReteriveData())
-//        mAdapter.notifyDataSetChanged()
+        dbHandler.updateRoutine(eventModel.id , "NewDesc", "12/12/21" , "Up" , "2000")
+        eventlist.clear()
+        eventlist.addAll(dbHandler.ReteriveData())
+        mAdapter.notifyDataSetChanged()
     }
 
     override fun onDeleteBtn(eventModel: EventModel) {
-//        dbHandler.deleteRoutine(eventModel.id)
-//        eventlist.clear()
-//        eventlist.addAll(dbHandler.ReteriveData())
-//        mAdapter.notifyDataSetChanged()
-//    }
+        dbHandler.deleteRoutine(eventModel.id)
+        eventlist.clear()
+        eventlist.addAll(dbHandler.ReteriveData())
+        mAdapter.notifyDataSetChanged()
     }
+
 }

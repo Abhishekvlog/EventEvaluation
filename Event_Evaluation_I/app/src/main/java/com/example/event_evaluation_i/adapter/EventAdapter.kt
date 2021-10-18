@@ -26,6 +26,7 @@ class EventAdapter(
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
 
         holder.setdata(routineList[position], listener)
+
     }
 
     override fun getItemCount(): Int {

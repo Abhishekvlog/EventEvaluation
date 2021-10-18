@@ -135,6 +135,7 @@ class DatabaseHandler(val context: Context) : SQLiteOpenHelper(context, "eventdb
     }
 
 
+
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
         TODO("Not yet implemented")
     }
