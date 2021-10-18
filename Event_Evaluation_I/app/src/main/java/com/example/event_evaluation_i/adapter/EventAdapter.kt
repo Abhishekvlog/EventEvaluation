@@ -24,13 +24,8 @@ class EventAdapter(
     }
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
-        val routine = routineList.get(position)
-        holder.btnEdit.setOnClickListener {
-            listener.onEditBtn(routine)
-        }
-        holder.btnDelete.setOnClickListener {
-            listener.onDeleteBtn(routine)
-        }
+
+        holder.setdata(routineList[position], listener)
     }
 
     override fun getItemCount(): Int {
@@ -53,5 +48,10 @@ class EventViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         btnEdit = itemView.findViewById(R.id.BtnEdit)
         btnDelete = itemView.findViewById(R.id.BtnDelete)
     }
-
+    fun setdata(eventModel: EventModel , listener: OnItemClick){
+        desc.text = eventModel.desc
+        location.text = eventModel.location
+        price.text = eventModel.price
+        date.text = eventModel.date
+    }
 }
